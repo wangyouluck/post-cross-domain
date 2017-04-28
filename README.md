@@ -1,10 +1,10 @@
-# post-cross-domain
-post cross-domain
-跨域GET,POST的实现是不一样的。
-GET方式，用JSONP的即可解决
-POST方式，用iframe,form来解决
 
-下面详细的讲解一下POST方式的iframe，form跨域解决方式与大致流程：
+
+跨域GET,POST的实现是不一样的。
+# GET方式，用JSONP的即可解决
+# POST方式，用iframe,form来解决
+
+# 下面详细的讲解一下POST方式的iframe，form跨域解决方式与大致流程：
 
 首先将需要请求的页面中添加隐藏的form表单，以及一个空的iframe，表单的target指向iframe的name，即
 两者要保持一致性，表示表单提交之后的数据将会填入iframe内
@@ -23,7 +23,7 @@ if (window.postMessage) {
 调用postMessage方法的window对象是指要接收消息的那一个window对象，该方法的第一个参数message为要发送的消息，类型只能为字符串；第二个参数targetOrigin用来限定接收消息的那个window对象所在的域，如果不想限定域，可以使用通配符 *  。
 使用postMessage来跨域传送数据还是比较直观和方便的，但是缺点是IE6、IE7不支持，所以用不用还得根据实际需要来决定。
 
-Jsonp的执行过程如下：
+# Jsonp的执行过程如下：
 
 首先在客户端注册一个callback (如:'jsoncallback'), 然后把callback的名字(如:jsonp1236827957501)传给服务器。注意：服务端得到callback的数值后，要用jsonp1236827957501(......)把将要输出的json内容包括起来，此时，服务器生成 json 数据才能被客户端正确接收。
 
